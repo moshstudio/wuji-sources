@@ -40,14 +40,19 @@
       "url": "https://raw.githubusercontent.com/moshstudio/wuji-sources/refs/heads/main/sources/biqu.js"
     },
     {
+      "name": "青豆小说",
+      "type": "book",
+      "url": "https://raw.githubusercontent.com/moshstudio/wuji-sources/refs/heads/main/sources/qingdou.js"
+    },
+    {
       "name": "81中文",
       "type": "book",
       "url": "https://raw.githubusercontent.com/moshstudio/wuji-sources/refs/heads/main/sources/bayizww.js"
     },
     {
-      "name": "青豆小说",
+      "name": "比奇小说",
       "type": "book",
-      "url": "https://raw.githubusercontent.com/moshstudio/wuji-sources/refs/heads/main/sources/qingdou.js"
+      "url": "https://raw.githubusercontent.com/moshstudio/wuji-sources/refs/heads/main/sources/biqi.js"
     }
   ]
 }
