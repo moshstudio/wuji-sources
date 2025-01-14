@@ -27,27 +27,27 @@
     {
       "name": "ZZ123",
       "type": "song",
-      "url": "https://raw.githubusercontent.com/moshstudio/test/refs/heads/main/sources/zz123.js"
+      "url": "https://raw.githubusercontent.com/moshstudio/wuji-sources/refs/heads/main/sources/zz123.js"
     },
     {
       "name": "咪咕音乐",
       "type": "song",
-      "url": "https://raw.githubusercontent.com/moshstudio/test/refs/heads/main/sources/migu.js"
+      "url": "https://raw.githubusercontent.com/moshstudio/wuji-sources/refs/heads/main/sources/migu.js"
     },
     {
       "name": "笔趣",
       "type": "book",
-      "url": "https://raw.githubusercontent.com/moshstudio/test/refs/heads/main/sources/biqu.js"
+      "url": "https://raw.githubusercontent.com/moshstudio/wuji-sources/refs/heads/main/sources/biqu.js"
     },
     {
       "name": "81中文",
       "type": "book",
-      "url": "https://raw.githubusercontent.com/moshstudio/test/refs/heads/main/sources/bayizww.js"
+      "url": "https://raw.githubusercontent.com/moshstudio/wuji-sources/refs/heads/main/sources/bayizww.js"
     },
     {
       "name": "青豆小说",
       "type": "book",
-      "url": "https://raw.githubusercontent.com/moshstudio/test/refs/heads/main/sources/qingdou.js"
+      "url": "https://raw.githubusercontent.com/moshstudio/wuji-sources/refs/heads/main/sources/qingdou.js"
     }
   ]
 }
