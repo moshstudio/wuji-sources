@@ -16,7 +16,6 @@ class MeiRenTu extends PhotoExtension {
 
   async fetchImages(url, pageNo, totalPage) {
     const body = await this.fetchDom(url);
-    console.log(body);
 
     const list = await this.queryPhotoElements(body, {
       element: ".update_area_content li",
@@ -41,7 +40,7 @@ class MeiRenTu extends PhotoExtension {
   }
 
   async getPhotoDetail(item, pageNo = 1) {
-    if (!item.url) return null;
+    if (!item.url || item.url.length < 5) return null;
     const url = item.url.substring(0, item.url.length - 5) + `-${pageNo}.html`;
     const body = await this.fetchDom(url);
     const elements = body.querySelectorAll(".content img");

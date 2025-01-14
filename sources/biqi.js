@@ -90,8 +90,6 @@ class BiQi extends BookExtension {
         "accept-language": "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7",
       },
     });
-    console.log(body);
-
     const list = await this.queryBookElements(body, {
       element: "#fengtui .bookbox",
       cover: "img",
@@ -135,8 +133,6 @@ class BiQi extends BookExtension {
   }
 
   async getBookDetail(item) {
-    console.log(item);
-
     if (!item.url) return null;
     const body = await this.fetchDom(item.url, {
       headers: {
