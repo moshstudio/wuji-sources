@@ -6,14 +6,11 @@ class ZZ123 extends SongExtension {
   ajaxUrl = "https://zz123.com/ajax/";
   async getRecommendPlaylists(pageNo) {
     pageNo ||= 1;
-    const response = await this.fetch(this.baseUrl, {
+    const body = await this.fetchDom(this.baseUrl, {
       verify: false,
     });
-    const body = new DOMParser().parseFromString(
-      await response.text(),
-      "text/html"
-    );
-    const elements = body.querySelector(".cate-list a");
+    const elements = body.querySelectorAll(".cate-list a");
+
     const list = [];
     elements?.forEach((item) => {
       const href = item.getAttribute("href");
@@ -74,7 +71,9 @@ class ZZ123 extends SongExtension {
   }
   async searchSongs(keyword, pageNo) {
     const url = `https://zz123.com/search/?key=${keyword}&page=${pageNo}`;
-    const response = await this.fetch(url);
+    const response = await this.fetch(url, {
+      verify: false,
+    });
     const text = await response.text();
 
     const regex = /var pageSongArr=\[(.*?)\];/;
@@ -145,9 +144,11 @@ class ZZ123 extends SongExtension {
       body: form,
     });
     const json = await response.json();
+
     return {
       "128k": json.data.mp3,
       lyric: json.data.lrc,
+      headers: {},
     };
   }
   async getLyric(item) {
