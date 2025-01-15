@@ -144,7 +144,6 @@ class ZZ123 extends SongExtension {
       body: form,
     });
     const json = await response.json();
-
     return {
       "128k": json.data.mp3,
       lyric: json.data.lrc,
