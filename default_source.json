@@ -24,11 +24,6 @@
       "url": "https://raw.githubusercontent.com/moshstudio/wuji-sources/refs/heads/main/sources/meirentu.js"
     },
     {
-      "name": "HotGirls",
-      "type": "photo",
-      "url": "https://raw.githubusercontent.com/moshstudio/wuji-sources/refs/heads/main/sources/hotGirls.js"
-    },
-    {
       "name": "咪咕音乐",
       "type": "song",
       "url": "https://raw.githubusercontent.com/moshstudio/wuji-sources/refs/heads/main/sources/migu.js"
