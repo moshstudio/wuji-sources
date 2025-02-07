@@ -6,53 +6,53 @@
     {
       "name": "美之图",
       "type": "photo",
-      "url": "https://raw.githubusercontent.com/moshstudio/wuji-sources/refs/heads/main/sources/mmzztt.js"
+      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fmmzztt.js"
     },
     {
       "name": "每日妹子图",
       "type": "photo",
-      "url": "https://raw.githubusercontent.com/moshstudio/wuji-sources/refs/heads/main/sources/meizi.js"
+      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fmeizi.js"
     },
     {
       "name": "极简壁纸",
       "type": "photo",
-      "url": "https://raw.githubusercontent.com/moshstudio/wuji-sources/refs/heads/main/sources/jjbz.js"
+      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fjjbz.js"
     },
     {
       "name": "美人图",
       "type": "photo",
-      "url": "https://raw.githubusercontent.com/moshstudio/wuji-sources/refs/heads/main/sources/meirentu.js"
+      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fmeirentu.js"
     },
     {
       "name": "咪咕音乐",
       "type": "song",
-      "url": "https://raw.githubusercontent.com/moshstudio/wuji-sources/refs/heads/main/sources/migu.js"
+      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fmigu.js"
     },
     {
       "name": "ZZ123",
       "type": "song",
-      "url": "https://raw.githubusercontent.com/moshstudio/wuji-sources/refs/heads/main/sources/zz123.js"
+      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fzz123.js"
     },
     
     {
       "name": "笔趣",
       "type": "book",
-      "url": "https://raw.githubusercontent.com/moshstudio/wuji-sources/refs/heads/main/sources/biqu.js"
+      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fbiqu.js"
     },
     {
       "name": "青豆小说",
       "type": "book",
-      "url": "https://raw.githubusercontent.com/moshstudio/wuji-sources/refs/heads/main/sources/qingdou.js"
+      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fqingdou.js"
     },
     {
       "name": "比奇小说",
       "type": "book",
-      "url": "https://raw.githubusercontent.com/moshstudio/wuji-sources/refs/heads/main/sources/biqi.js"
+      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fbiqi.js"
     },
     {
       "name": "81中文",
       "type": "book",
-      "url": "https://raw.githubusercontent.com/moshstudio/wuji-sources/refs/heads/main/sources/bayizww.js"
+      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fbayizww.js"
     }
   ]
 }
