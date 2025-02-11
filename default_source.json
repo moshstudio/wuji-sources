@@ -4,6 +4,11 @@
   "version": 1,
   "urls": [
     {
+      "name": "日式JK",
+      "type": "photo",
+      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fjkrs.js"
+    },
+    {
       "name": "美之图",
       "type": "photo",
       "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fmmzztt.js"
@@ -17,6 +22,16 @@
       "name": "极简壁纸",
       "type": "photo",
       "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fjjbz.js"
+    },
+    {
+      "name": "微博美女",
+      "type": "photo",
+      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fweibomn.js"
+    },
+    {
+      "name": "ClickMe",
+      "type": "photo",
+      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fclickme.js"
     },
     {
       "name": "美人图",
@@ -33,7 +48,11 @@
       "type": "song",
       "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fzz123.js"
     },
-    
+    {
+      "name": "哔哩",
+      "type": "song",
+      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fbilibili.js"
+    },
     {
       "name": "笔趣",
       "type": "book",
