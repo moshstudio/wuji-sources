@@ -6,72 +6,87 @@
     {
       "name": "日式JK",
       "type": "photo",
-      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fjkrs.js"
+      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fphoto%2Fjkrs.js"
     },
     {
       "name": "美之图",
       "type": "photo",
-      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fmmzztt.js"
+      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fphoto%2Fmmzztt.js"
     },
     {
       "name": "每日妹子图",
       "type": "photo",
-      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fmeizi.js"
+      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fphoto%2Fmeizi.js"
     },
     {
       "name": "极简壁纸",
       "type": "photo",
-      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fjjbz.js"
+      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fphoto%2Fjjbz.js"
     },
     {
       "name": "微博美女",
       "type": "photo",
-      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fweibomn.js"
+      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fphoto%2Fweibomn.js"
+    },
+    {
+      "name": "1YBeauties",
+      "type": "photo",
+      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fphoto%2F1YBeauties.js"
     },
     {
       "name": "ClickMe",
       "type": "photo",
-      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fclickme.js"
-    },
-    {
-      "name": "美人图",
-      "type": "photo",
-      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fmeirentu.js"
+      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fphoto%2Fclickme.js"
     },
     {
       "name": "咪咕音乐",
       "type": "song",
-      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fmigu.js"
+      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fsong%2Fmigu.js"
     },
     {
       "name": "ZZ123",
       "type": "song",
-      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fzz123.js"
+      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fsong%2Fzz123.js"
     },
     {
       "name": "哔哩",
       "type": "song",
-      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fbilibili.js"
+      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fsong%2Fbilibili.js"
+    },
+    {
+      "name": "阅友",
+      "type": "book",
+      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fbook%2Fyueyouxs.js"
     },
     {
       "name": "笔趣",
       "type": "book",
-      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fbiqu.js"
+      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fbook%2Fbiqu.js"
     },
     {
       "name": "青豆小说",
       "type": "book",
-      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fqingdou.js"
+      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fbook%2Fqingdou.js"
     },
     {
       "name": "比奇小说",
       "type": "book",
-      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fbiqi.js"
+      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fbook%2Fbiqi.js"
+    },
+    {
+      "name": "完美小说",
+      "type": "book",
+      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fbook%2Fumixs.js"
     },
     {
       "name": "81中文",
       "type": "book",
-      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fbayizww.js"
+      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fbook%2Fbayizww.js"
+    },
+    {
+      "name": "看书阁",
+      "type": "book",
+      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fbook%2Fxseeshu.js"
     }
   ]
 }

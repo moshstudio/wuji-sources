@@ -1,6 +1,6 @@
 class MeiRenTu extends PhotoExtension {
   id = "9894c61c751c48a99ca5c24bf6cd3630";
-  name = "美人图";
+  name = "美人图(需代理)";
   version = "0.0.1";
   baseUrl = "https://meirentu.cc/";
 
@@ -15,7 +15,10 @@ class MeiRenTu extends PhotoExtension {
   }
 
   async fetchImages(url, pageNo, totalPage) {
-    const body = await this.fetchDom(url);
+    const body = await this.fetchDom(url, {
+      verify: false,
+      connectTimeout: 6000,
+    });
 
     const list = await this.queryPhotoElements(body, {
       element: ".update_area_content li",
@@ -30,6 +33,7 @@ class MeiRenTu extends PhotoExtension {
         referer: this.baseUrl,
       };
     });
+    if (!list.length) return null;
 
     const pageElements = body.querySelectorAll(".page a");
     return {

@@ -186,7 +186,7 @@ class BiLi extends SongExtension {
         return json.data.cid;
       };
       cid = await getCid(aid, bvid);
-      item.id = `${aid}_${bvid}_${cid}`;
+      // item.id = `${aid}_${bvid}_${cid}`;
     }
     const url = 'https://api.bilibili.com/x/player/wbi/playurl';
     const params = this.encWbi({
@@ -263,7 +263,7 @@ class BiLi extends SongExtension {
     let cache = localStorage.getItem(key);
     if (cache) cache = JSON.parse(cache);
 
-    if (Date.now() - (cache?.ts || 0) > 86400) {
+    if (Date.now() - (cache?.ts || 0) > 43200) {
       // 缓存已失效
       cache = null;
     }

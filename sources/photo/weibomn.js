@@ -16,6 +16,7 @@ class WeiBoMN extends PhotoExtension {
         headers: {
           'upgrade-insecure-requests': '1',
         },
+        verify: false,
       });
       const lists = await this.queryPhotoElements(document, {
         element: '.container .card',
@@ -37,11 +38,7 @@ class WeiBoMN extends PhotoExtension {
   }
 
   async search(keyword, pageNo) {
-    return {
-      list: [],
-      page: 1,
-      totalPage: 1,
-    };
+    return null;
   }
   async getPhotoDetail(item, pageNo) {
     try {
@@ -49,12 +46,14 @@ class WeiBoMN extends PhotoExtension {
         headers: {
           'upgrade-insecure-requests': '1',
         },
+        verify: false,
       });
       const imgs = document.querySelectorAll('.page-container img');
       const imgItems = Array.from(imgs).map((img) => img.getAttribute('src'));
       return {
         item,
         photos: imgItems,
+        photosHeaders: { 'upgrade-insecure-requests': '1', },
         page: 1,
         totalPage: 1,
       };

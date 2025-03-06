@@ -57,8 +57,20 @@ def upload_project(config: BitifulConfig):
     )
     main_file = CURR_PATH.joinpath("default_source.json")
     _upload_file(client, main_file, config.bucketName, "default_source.json")
-    for file in CURR_PATH.joinpath("sources").glob("*.js"):
-        _upload_file(client, file, config.bucketName, "sources/" + file.name)
+    banned_file = CURR_PATH.joinpath("banned.json")
+    _upload_file(client, banned_file, config.bucketName, "banned.json")
+
+    for file in CURR_PATH.joinpath("sources/photo").glob("*.js"):
+        _upload_file(client, file, config.bucketName, "sources/photo/" + file.name)
+    
+    for file in CURR_PATH.joinpath("sources/song").glob("*.js"):
+        _upload_file(client, file, config.bucketName, "sources/song/" + file.name)
+    
+    for file in CURR_PATH.joinpath("sources/book").glob("*.js"):
+        _upload_file(client, file, config.bucketName, "sources/book/" + file.name)
+    
+    for file in CURR_PATH.joinpath("sources/banned").glob("*.js"):
+        _upload_file(client, file, config.bucketName, "sources/banned/" + file.name)
 
 
 def _upload_file(client, file_name, bucket, object_name=None) -> bool:

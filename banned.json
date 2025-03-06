@@ -1,0 +1,27 @@
+{
+  "id": "c6d8c2ec8ae9406aa3cca09444af0f4b",
+  "name": "banned源",
+  "version": 1,
+  "urls": [
+    {
+      "name": "hotgirls",
+      "type": "photo",
+      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fbanned%2FhotGirls.js"
+    },
+    {
+      "name": "美人图",
+      "type": "photo",
+      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fbanned%2Fmeirentu.js"
+    },
+    {
+      "name": "全本小说",
+      "type": "book",
+      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fbanned%2Fquanbenxiaoshuo.js"
+    },
+    {
+      "name": "得奇小说",
+      "type": "book",
+      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fbanned%2Fdeqixs.js"
+    }
+  ]
+}

@@ -9,7 +9,7 @@ class JKRS extends PhotoExtension {
     pageNo ||= 1;
     let url = `${this.baseUrl}page/${pageNo}/`;
     try {
-      const document = await this.fetchDom(url);
+      const document = await this.fetchDom(url, { verify: false });
       const lists = await this.queryPhotoElements(document, {
         element: '#masonry .item',
         cover: 'img',
@@ -33,7 +33,7 @@ class JKRS extends PhotoExtension {
     pageNo ||= 1;
     let url = `${this.baseUrl}search/${keyword}/`;
     try {
-      const document = await this.fetchDom(url);
+      const document = await this.fetchDom(url, { verify: false });
       const lists = await this.queryPhotoElements(document, {
         element: '#masonry .item',
         cover: 'img',
@@ -54,7 +54,7 @@ class JKRS extends PhotoExtension {
   }
   async getPhotoDetail(item, pageNo) {
     try {
-      const document = await this.fetchDom(item.url);
+      const document = await this.fetchDom(item.url, { verify: false });
       const imgs = document.querySelectorAll('#masonry img');
       const imgItems = Array.from(imgs).map((img) =>
         img.getAttribute('data-original')

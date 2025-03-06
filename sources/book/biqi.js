@@ -84,7 +84,7 @@ class BiQi extends BookExtension {
   }
 
   async search(keyword, pageNo) {
-    const url = `https://www.jdzwo.com/search.php?searchkey=${keyword}&action=login&submit=&page=${pageNo}`;
+    const url = `${this.baseUrl}search.php?searchkey=${keyword}&action=login&submit=&page=${pageNo}`;
     const body = await this.fetchDom(url, {
       headers: {
         "accept-language": "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7",

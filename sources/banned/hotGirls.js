@@ -23,9 +23,6 @@ class HotGirl extends PhotoExtension {
       list?.forEach((item) => {
         const img = item.querySelector("img");
         const title = item.querySelector(".articles-grid__title").textContent;
-        if (title.includes("uncensored")) {
-          return;
-        }
         const cover = img?.getAttribute("data-src") || "";
         const datetime = item
           .querySelector(".articles-grid__publish-date")
@@ -72,9 +69,6 @@ class HotGirl extends PhotoExtension {
       list?.forEach((item) => {
         const img = item.querySelector("img");
         const title = item.querySelector(".articles-grid__title").textContent;
-        if (title.includes("uncensored")) {
-          return;
-        }
         const cover = img?.getAttribute("data-src") || "";
         const datetime = item
           .querySelector(".articles-grid__publish-date")
