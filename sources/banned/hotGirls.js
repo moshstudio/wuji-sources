@@ -3,45 +3,26 @@ class HotGirl extends PhotoExtension {
   id = "y78dsayd";
   name = "HotGirl";
   version = "0.0.1";
-  baseUrl = "https://www.hotgirl2024.com/";
+  baseUrl = 'https://www.hotgirl2024.com/';
 
   async getRecommendList(pageNo) {
     pageNo ||= 1;
     let url = `${this.baseUrl}?page=${pageNo}`;
     try {
-      const response = await this.fetch(url, {
-        headers: { "Upgrade-Insecure-Requests": "1", Referer: this.baseUrl },
+      const document = await this.fetchDom(url, {
+        headers: { 'Upgrade-Insecure-Requests': '1', Referer: this.baseUrl },
       });
-      const iframe = await this.parseAndExecuteHtml(
-        await response.text(),
-        this.baseUrl
-      );
-      const iframeDocument =
-        iframe.contentDocument || iframe.contentWindow?.document;
-      const list = iframeDocument?.querySelectorAll(".articles-grid__content");
-      const listArr = [];
-      list?.forEach((item) => {
-        const img = item.querySelector("img");
-        const title = item.querySelector(".articles-grid__title").textContent;
-        const cover = img?.getAttribute("data-src") || "";
-        const datetime = item
-          .querySelector(".articles-grid__publish-date")
-          .textContent?.trim();
-        const hot = item
-          .querySelector(".articles-grid__views")
-          .textContent?.trim();
-        listArr.push({
-          id: this.nanoid(),
-          title,
-          cover: cover ? this.urlJoin(this.baseUrl, cover) : "",
-          datetime,
-          hot,
-          url: item.querySelector("a").href,
-        });
+      const list = await this.queryPhotoElements(document, {
+        element: '.articles-grid__content',
+        cover: 'img',
+        title: '.articles-grid__title',
+        datetime: '.articles-grid__publish-date',
+        hot: '.articles-grid__views',
+        url: 'a',
       });
-      const pageItems = iframeDocument?.querySelectorAll(".pagination__item");
+      const pageItems = document?.querySelectorAll('.pagination__item');
       return {
-        list: listArr,
+        list,
         page: pageNo,
         totalPage: this.maxPageNoFromElements(pageItems),
       };
@@ -55,39 +36,21 @@ class HotGirl extends PhotoExtension {
     pageNo ||= 1;
     let url = `${this.baseUrl}search.html/?page=${pageNo}&q=${keyword}`;
     try {
-      const response = await this.fetch(url, {
-        headers: { "Upgrade-Insecure-Requests": "1", Referer: this.baseUrl },
+      const document = await this.fetchDom(url, {
+        headers: { 'Upgrade-Insecure-Requests': '1', Referer: this.baseUrl },
       });
-      const iframe = await this.parseAndExecuteHtml(
-        await response.text(),
-        this.baseUrl
-      );
-      const iframeDocument =
-        iframe.contentDocument || iframe.contentWindow?.document;
-      const list = iframeDocument?.querySelectorAll(".articles-grid__content");
-      const listArr = [];
-      list?.forEach((item) => {
-        const img = item.querySelector("img");
-        const title = item.querySelector(".articles-grid__title").textContent;
-        const cover = img?.getAttribute("data-src") || "";
-        const datetime = item
-          .querySelector(".articles-grid__publish-date")
-          .textContent?.trim();
-        const hot = item
-          .querySelector(".articles-grid__views")
-          .textContent?.trim();
-        listArr.push({
-          id: this.nanoid(),
-          title,
-          cover: cover ? this.urlJoin(this.baseUrl, cover) : "",
-          datetime,
-          hot,
-          url: item.querySelector("a").href,
-        });
+      const list = await this.queryPhotoElements(document, {
+        element: '.articles-grid__content',
+        cover: 'img',
+        title: '.articles-grid__title',
+        datetime: '.articles-grid__publish-date',
+        hot: '.articles-grid__views',
+        url: 'a',
       });
-      const pageItems = iframeDocument?.querySelectorAll(".pagination__item");
+
+      const pageItems = document?.querySelectorAll('.pagination__item');
       return {
-        list: listArr,
+        list,
         page: pageNo,
         totalPage: this.maxPageNoFromElements(pageItems),
       };
@@ -99,31 +62,23 @@ class HotGirl extends PhotoExtension {
   async getPhotoDetail(item, pageNo) {
     try {
       const url = item.url + `/?page=${pageNo}`;
-      const response = await this.fetch(url, {
-        headers: { "Upgrade-Insecure-Requests": "1", Referer: this.baseUrl },
+      const document = await this.fetchDom(url, {
+        headers: { 'Upgrade-Insecure-Requests': '1', Referer: this.baseUrl },
       });
-      const iframe = await this.parseAndExecuteHtml(
-        await response.text(),
-        this.baseUrl
-      );
-      const iframeDocument =
-        iframe.contentDocument || iframe.contentWindow?.document;
-      const list = iframeDocument
-        ?.querySelector(".article__image-list")
-        ?.querySelectorAll("img");
+      const list = document
+        ?.querySelector('.article__image-list')
+        ?.querySelectorAll('img');
 
       const imgItems = [];
       list?.forEach((item) => {
         const img = item;
-        const cover = img?.getAttribute("data-src") || "";
-        imgItems.push(cover ? this.urlJoin(this.baseUrl, cover) : "");
+        const cover = img?.getAttribute('data-src') || '';
+        imgItems.push(cover ? this.urlJoin(this.baseUrl, cover) : '');
       });
-      const pageElement = iframeDocument?.querySelector(
-        ".pagination__item--active"
-      );
+      const pageElement = document?.querySelector('.pagination__item--active');
       const page = Number(pageElement?.textContent?.trim()) || pageNo || 1;
       const totalPage = this.maxPageNoFromElements(
-        iframeDocument?.querySelectorAll(".pagination__total")
+        document?.querySelectorAll('.pagination__total')
       );
       return {
         item,

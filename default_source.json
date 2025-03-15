@@ -29,6 +29,16 @@
       "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fphoto%2Fweibomn.js"
     },
     {
+      "name": "热丝美图",
+      "type": "photo",
+      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fphoto%2Fresi.js"
+    },
+    {
+      "name": "牛牛美图",
+      "type": "photo",
+      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fphoto%2Fniuniu.js"
+    },
+    {
       "name": "1YBeauties",
       "type": "photo",
       "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fphoto%2F1YBeauties.js"
@@ -64,6 +74,11 @@
       "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fbook%2Fbiqu.js"
     },
     {
+      "name": "七四小说",
+      "type": "book",
+      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fbook%2Fqisi.js"
+    },
+    {
       "name": "青豆小说",
       "type": "book",
       "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fbook%2Fqingdou.js"
@@ -74,11 +89,6 @@
       "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fbook%2Fbiqi.js"
     },
     {
-      "name": "完美小说",
-      "type": "book",
-      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fbook%2Fumixs.js"
-    },
-    {
       "name": "81中文",
       "type": "book",
       "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fbook%2Fbayizww.js"
@@ -87,6 +97,21 @@
       "name": "看书阁",
       "type": "book",
       "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fbook%2Fxseeshu.js"
+    },
+    {
+      "name": "动漫之家",
+      "type": "comic",
+      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fcomic%2Fdmzj.js"
+    },
+    {
+      "name": "漫画吧",
+      "type": "comic",
+      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fcomic%2Fmanhuaba.js"
+    },
+    {
+      "name": "新新漫画",
+      "type": "comic",
+      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fcomic%2Fxinxin.js"
     }
   ]
 }

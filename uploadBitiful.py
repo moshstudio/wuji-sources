@@ -69,6 +69,9 @@ def upload_project(config: BitifulConfig):
     for file in CURR_PATH.joinpath("sources/book").glob("*.js"):
         _upload_file(client, file, config.bucketName, "sources/book/" + file.name)
     
+    for file in CURR_PATH.joinpath("sources/comic").glob("*.js"):
+        _upload_file(client, file, config.bucketName, "sources/comic/" + file.name)
+    
     for file in CURR_PATH.joinpath("sources/banned").glob("*.js"):
         _upload_file(client, file, config.bucketName, "sources/banned/" + file.name)
 

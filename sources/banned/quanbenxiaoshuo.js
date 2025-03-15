@@ -94,7 +94,6 @@ class QuanBen extends BookExtension {
     let url = item.url;
     if (pageNo > 1) {
       url = url.replace('.html', `_${pageNo}.html`);
-      console.log(url);
     }
     const document = await this.fetchDom(url);
 

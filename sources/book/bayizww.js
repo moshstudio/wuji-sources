@@ -66,8 +66,7 @@ class BaYiZW extends BookExtension {
     pageNo = pageNo || 1;
     const url = this.urlJoin(item.url, String(pageNo));
 
-    const response = await this.fetch(url);
-    const body = new DOMParser().parseFromString(await response.text(), "text/html");
+    const body = await this.fetchDom(url);
 
     const elements = body.querySelectorAll("#sitebox dl");
 

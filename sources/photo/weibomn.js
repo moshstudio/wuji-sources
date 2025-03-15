@@ -7,34 +7,33 @@ class WeiBoMN extends PhotoExtension {
 
   async getRecommendList(pageNo) {
     pageNo ||= 1;
-    let url = `${this.baseUrl}list_${pageNo}.html`;
-    if (pageNo === 1) {
-      url = this.baseUrl;
-    }
-    try {
-      const document = await this.fetchDom(url, {
-        headers: {
-          'upgrade-insecure-requests': '1',
-        },
-        verify: false,
-      });
-      const lists = await this.queryPhotoElements(document, {
-        element: '.container .card',
-        cover: 'img',
-        title: 'img',
-        hot: 'small',
-        url: 'a',
-      });
-
+    let url = `${this.baseUrl}database.php?page=${pageNo}`;
+    // if (pageNo === 1) {
+    //   url = this.baseUrl;
+    // }
+    const response = await this.fetch(url, {
+      headers: {
+        'refererr': this.baseUrl,
+      },
+      verify: false,
+    });
+    const json = await response.json();
+    const list = json.data.map((item)=>{
+      const url = `${this.baseUrl}/girl${item.createtime}.html`
+      const cover = this.urlJoin(this.baseUrl, item.image)
       return {
-        list: lists,
+        id: url,
+        title: '',
+        url,
+        cover,
+        sourceId: '',
+      }
+    })
+      return {
+        list,
         page: pageNo,
         totalPage: 74,
       };
-    } catch (error) {
-      console.log(error);
-      return null;
-    }
   }
 
   async search(keyword, pageNo) {

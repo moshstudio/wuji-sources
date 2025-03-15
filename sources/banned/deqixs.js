@@ -62,7 +62,6 @@ class DeQi extends BookExtension {
   async search(keyword, pageNo) {
     const url = `${this.baseUrl}tag/?key=${keyword}`;
     const document = await this.fetchDom(url);
-    console.log(document);
 
     const list = await this.queryBookElements(document, {
       element: '.container .item',

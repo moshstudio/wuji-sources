@@ -100,7 +100,6 @@ class WanMei extends BookExtension {
     const form = new FormData();
     form.append('s', keyword);
     const document = await this.fetchDom(url, { body: form, method: 'POST' });
-    console.log(document);
 
     const list = await this.queryBookElements(document, {
       element: '.bd li',
@@ -178,7 +177,6 @@ class WanMei extends BookExtension {
     let res = '';
     do {
       hasNext = false;
-      console.log(url);
 
       const document = await this.fetchDom(url);
 

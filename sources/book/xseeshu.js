@@ -111,7 +111,6 @@ class KanShuGe extends BookExtension {
       document.querySelector('.book-img img').getAttribute('src')
     );
     item.author = document.querySelector('.bookname h1').textContent.trim();
-    console.log(item.cover);
 
     const options = Array.from(
       document

@@ -22,6 +22,16 @@
       "name": "得奇小说",
       "type": "book",
       "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fbanned%2Fdeqixs.js"
+    },
+    {
+      "name": "网易云",
+      "type": "song",
+      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fbanned%2Fnetease.js"
+    },
+    {
+      "name": "开心漫画",
+      "type": "comic",
+      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fbanned%2FkxManHua.js"
     }
   ]
 }
