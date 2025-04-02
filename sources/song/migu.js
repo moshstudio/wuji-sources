@@ -2,37 +2,39 @@ class MiGuSongExtension extends SongExtension {
   id = "dhs78adgh";
   name = "咪咕音乐";
   version = "0.0.1";
-  baseUrl = "https://music.migu.cn/";
+  baseUrl = 'https://music.migu.cn/';
   async getRecommendPlaylists(pageNo) {
     pageNo ||= 1;
-    const url = `https://music.migu.cn/v3/music/playlist?page=${pageNo}`;
+    const typeMap = {
+      2: 15127272, // 最新
+      1: 15127315, // 推荐
+    };
+    const url = `http://m.music.migu.cn/migu/remoting/playlist_bycolumnid_tag?playListType=2&type=1&columnId=${typeMap[2]}&tagId=&startIndex=${(pageNo - 1) * 10}`;
     const data = await this.getData(url);
-    const body = new DOMParser().parseFromString(data, "text/html");
-    const elements = body.querySelectorAll(".song-list-cont .thumb");
+
     const list = [];
-    elements.forEach((ele) => {
-      const img = ele.querySelector("img")?.getAttribute("data-original");
-      const dataId = ele
-        .querySelector(".play-btn.action-btn.playlist-play")
-        .getAttribute("data-id");
-      const name = ele.querySelector(".song-list-name a").textContent;
-      const playCount = ele
-        .querySelector(".desc-text.creatorName")
-        .textContent?.trim();
+    data.retMsg.playlist.forEach((ele) => {
       list.push({
-        name: name,
-        id: dataId,
-        picUrl: img,
-        playCount,
-        sourceId: "",
+        name: ele.playListName,
+        id: ele.playListId,
+        picUrl: ele.image,
+        desc: ele.summary,
+        createTime: ele.createTime,
+        creator: {
+          id: ele.createUserId,
+          name: ele.createName,
+        },
+        songCount: ele.contentCount,
+        playCount: ele.playCount,
+        sourceId: '',
+        extra: { type: ele.playListType },
       });
     });
-    const pageElements = body.querySelectorAll(".page a");
     return {
       list,
       page: pageNo,
       pageSize: 10,
-      totalPage: this.maxPageNoFromElements(pageElements),
+      totalPage: Math.ceil(Number(data.retMsg.countSize) / 10),
     };
   }
   async getRecommendSongs(pageNo) {
@@ -62,7 +64,7 @@ class MiGuSongExtension extends SongExtension {
         url: ele.songData.listenUrl,
         picUrl: ele.songData.picM,
         bigPicUrl: ele.songData.picL,
-        sourceId: "",
+        sourceId: '',
       });
     });
 
@@ -81,7 +83,10 @@ class MiGuSongExtension extends SongExtension {
       `https://m.music.migu.cn/migu/remoting/scr_search_tag` +
       `?keyword=${keyword}&pgc=${pageNo}&rows=10&type=6`;
     const response = await this.getData(url);
+
     const list = [];
+    console.log(response);
+
     response.songLists.forEach((ele) => {
       list.push({
         name: ele.name,
@@ -89,7 +94,8 @@ class MiGuSongExtension extends SongExtension {
         picUrl: ele.img,
         songCount: ele.musicNum,
         playCount: ele.playNum,
-        sourceId: "",
+        sourceId: '',
+        extra: { userId: ele.userId, type: ele.songlistType },
       });
     });
     return {
@@ -105,6 +111,7 @@ class MiGuSongExtension extends SongExtension {
       `https://m.music.migu.cn/migu/remoting/scr_search_tag` +
       `?keyword=${keyword}&pgc=${pageNo}&rows=10&type=2`;
     const response = await this.getData(url);
+    console.log(response);
 
     const songs = [];
     response.musics.forEach((ele) => {
@@ -117,8 +124,8 @@ class MiGuSongExtension extends SongExtension {
         album: ele.albumId,
         mvId: ele.mvId,
         mvCid: ele.mvCopyrightId,
-        picUrl: ele.cover,
-        sourceId: "",
+        picUrl: '',
+        sourceId: '',
       });
     });
     return {
@@ -132,72 +139,47 @@ class MiGuSongExtension extends SongExtension {
   async getPlaylistDetail(item, pageNo) {
     pageNo ||= 1;
     if (pageNo == 1) {
-      const url =
-        `http://m.music.migu.cn/migu/remoting/query_playlist_by_id_tag` +
-        `?onLine=1&queryChannel=0&createUserId=migu&contentCountMin=5&playListId=${item.id}`;
+      const url = `http://m.music.migu.cn/migu/remoting/query_playlist_by_id_tag?onLine=1&queryChannel=0&createUserId=${item.extra?.userId || 'migu'}&contentCountMin=5&playListId=${item.id}`;
       const playListRes = await this.getData(url);
       const listInfo = playListRes?.rsp?.playList[0];
-      if (!listInfo) {
-        return null;
+      if (listInfo) {
+        const {
+          createUserId,
+          playCount,
+          contentCount,
+          summary: desc,
+          createTime,
+          updateTime,
+        } = listInfo;
+        item.playCount = playCount;
+        item.songCount = contentCount;
+        item.desc = desc;
+        item.creator = {
+          id: createUserId,
+          name: item.creator?.name,
+        };
+        item.createTime = createTime;
+        item.updateTime = updateTime;
       }
-      const {
-        createUserId,
-        playCount,
-        contentCount,
-        summary: desc,
-        createTime,
-        updateTime,
-      } = listInfo;
-      item.playCount = playCount;
-      item.songCount = contentCount;
-      item.desc = desc;
-      item.creator = {
-        id: createUserId,
-        name: item.creator?.name,
-      };
-      item.createTime = createTime;
-      item.updateTime = updateTime;
     }
-    const cids = [];
-    const listUrl = `https://music.migu.cn/v3/music/playlist/${item.id}?page=${pageNo}`;
 
-    const listRes = await this.getData(listUrl);
-
-    const html = new DOMParser().parseFromString(listRes, "text/html");
-    html.querySelectorAll(".row").forEach((ele) => {
-      if (ele.getAttribute("data-cid")) {
-        cids.push(ele.getAttribute("data-cid"));
-      }
-    });
-
+    const newUrl = `http://m.music.migu.cn/migu/remoting/playlistcontents_query_tag?playListType=${item.extra.type}&playListId=${item.id}&contentCount=${item.songCount}`;
+    const playListRes = await this.getData(newUrl);
     const songs = [];
-    const songsUrl =
-      `https://music.migu.cn/v3/api/music/audioPlayer/songs` +
-      `?type=1&copyrightId=${cids.join(",")}`;
-    const songsRes = await this.getData(songsUrl);
 
-    (songsRes?.items || []).forEach((s) => {
+    playListRes.contentList.forEach((s) => {
       songs.push({
         id: s.songId,
-        cid: s.copyrightId,
-        name: s.songName,
-        artists: s.singers.map((a) => a.artistName),
-        album: s.albums[0]
-          ? { id: s.albums[0].albumId, name: s.albums[0].albumId }
-          : undefined,
-        duration: (s.length || "00:00:00")
-          .split(":")
-          .reduce((t, v, i) => t + Number(v) * Math.pow(60, 2 - i), 0),
-        mvId: s.mvList[0]?.mvId,
-        mvCid: s.mvList[0]?.copyrightId,
-        sourceId: "",
+        cid: s.contentId,
+        name: s.contentName,
+        artists: s.singerName?.split(','),
+        sourceId: '',
       });
     });
     item.list = {
       list: songs,
       page: pageNo,
-      pageSize: 20,
-      totalPage: Math.ceil(Number(item.songCount) / 20),
+      totalPage: 1,
     };
 
     return item;
@@ -205,13 +187,13 @@ class MiGuSongExtension extends SongExtension {
   async getData(url, options) {
     options ||= {};
     const headers = new Headers(options.headers || {});
-    if (!headers.has("Referer") && !headers.has("referer")) {
-      headers.set("Referer", "http://m.music.migu.cn/v3");
+    if (!headers.has('Referer') && !headers.has('referer')) {
+      headers.set('Referer', 'http://m.music.migu.cn/v3');
     }
-    if (!headers.has("user-agent") && !headers.has("User-Agent")) {
+    if (!headers.has('user-agent') && !headers.has('User-Agent')) {
       headers.set(
-        "User-Agent",
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
+        'User-Agent',
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36'
       );
     }
     options.headers = headers;
@@ -233,23 +215,23 @@ class MiGuSongExtension extends SongExtension {
       return null;
     }
 
-    for (const quality of ["PQ", "HQ", "SQ"]) {
+    for (const quality of ['PQ', 'HQ', 'SQ']) {
       const url =
         `https://app.c.nf.migu.cn/MIGUM2.0/strategy/listen-url/v2.2` +
         `?netType=01&resourceType=E&songId=${item.id}&toneFlag=${quality}`;
       const response = await this.getData(url, {
         headers: {
-          channel: "0146951",
-          uuid: "1234",
+          channel: '0146951',
+          uuid: '1234',
         },
       });
-      if (!response || response.info?.includes("歌曲下线")) {
+      if (!response || response.info?.includes('歌曲下线')) {
         return null;
       }
       if (response.data?.url) {
         return {
           '128k': response.data.url,
-          lyric: item.lyric || await this.getLyric(item),
+          lyric: item.lyric || (await this.getLyric(item)),
         };
       }
     }

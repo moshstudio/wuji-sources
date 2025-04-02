@@ -8,32 +8,30 @@ class WeiBoMN extends PhotoExtension {
   async getRecommendList(pageNo) {
     pageNo ||= 1;
     let url = `${this.baseUrl}database.php?page=${pageNo}`;
-    // if (pageNo === 1) {
-    //   url = this.baseUrl;
-    // }
     const response = await this.fetch(url, {
       headers: {
-        'refererr': this.baseUrl,
+        refererr: this.baseUrl,
+        'x-requested-with': 'XMLHttpRequest',
       },
       verify: false,
     });
     const json = await response.json();
-    const list = json.data.map((item)=>{
-      const url = `${this.baseUrl}/girl${item.createtime}.html`
-      const cover = this.urlJoin(this.baseUrl, item.image)
+    const list = json.data.map((item) => {
+      const url = `${this.baseUrl}/girl${item.createtime}.html`;
+      const cover = this.urlJoin(this.baseUrl, item.image);
       return {
         id: url,
         title: '',
         url,
         cover,
         sourceId: '',
-      }
-    })
-      return {
-        list,
-        page: pageNo,
-        totalPage: 74,
       };
+    });
+    return {
+      list,
+      page: pageNo,
+      totalPage: 74,
+    };
   }
 
   async search(keyword, pageNo) {
@@ -47,12 +45,14 @@ class WeiBoMN extends PhotoExtension {
         },
         verify: false,
       });
-      const imgs = document.querySelectorAll('.page-container img');
-      const imgItems = Array.from(imgs).map((img) => img.getAttribute('src'));
+      const imgs = document.querySelectorAll('.post-content img');
+      const imgItems = Array.from(imgs).map((img) =>
+        this.urlJoin(this.baseUrl, img.getAttribute('src'))
+      );
       return {
         item,
         photos: imgItems,
-        photosHeaders: { 'upgrade-insecure-requests': '1', },
+        photosHeaders: { 'upgrade-insecure-requests': '1' },
         page: 1,
         totalPage: 1,
       };

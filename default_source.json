@@ -24,11 +24,6 @@
       "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fphoto%2Fjjbz.js"
     },
     {
-      "name": "微博美女",
-      "type": "photo",
-      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fphoto%2Fweibomn.js"
-    },
-    {
       "name": "热丝美图",
       "type": "photo",
       "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fphoto%2Fresi.js"
@@ -99,9 +94,24 @@
       "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fbook%2Fxseeshu.js"
     },
     {
+      "name": "蚂蚁93",
+      "type": "book",
+      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fbook%2Fmayi93.js"
+    },
+    {
+      "name": "杂志网",
+      "type": "book",
+      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fbook%2F52dzxy.js"
+    },
+    {
       "name": "动漫之家",
       "type": "comic",
       "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fcomic%2Fdmzj.js"
+    },
+    {
+      "name": "包子漫画",
+      "type": "comic",
+      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fcomic%2Fbaozi.js"
     },
     {
       "name": "漫画吧",
@@ -112,6 +122,26 @@
       "name": "新新漫画",
       "type": "comic",
       "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fcomic%2Fxinxin.js"
+    },
+    {
+      "name": "星光影视",
+      "type": "video",
+      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fvideo%2F66s6.js"
+    },
+    {
+      "name": "简单TV",
+      "type": "video",
+      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fvideo%2Fjiandantv.js"
+    },
+    {
+      "name": "AUETE",
+      "type": "video",
+      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fvideo%2Fauete.js"
+    },
+    {
+      "name": "毒舌影视",
+      "type": "video",
+      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fvideo%2Fduse.js"
     }
   ]
 }

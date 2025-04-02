@@ -1,0 +1,135 @@
+class WN03 extends ComicExtension {
+  id = "bbcbe99747c746f6bf3567f321b49bc7";
+  name = "绅士漫画";
+  version = '0.0.1';
+  baseUrl = 'https://www.wn03.cc/';
+  async getRecommendComics(pageNo, type) {
+    let items = [
+      {
+        name: '更新',
+        tag: 'albums-index-page-{pageNo}.html',
+      },
+      {
+        name: '同人志',
+        tag: 'albums-index-page-{pageNo}-cate-5.html',
+      },
+      {
+        name: '单行本',
+        tag: 'albums-index-page-{pageNo}-cate-6.html',
+      },
+      {
+        name: '短篇',
+        tag: 'albums-index-page-{pageNo}-cate-7.html',
+      },
+      {
+        name: '韩漫',
+        tag: 'albums-index-page-{pageNo}-cate-19.html',
+      },
+    ];
+    if (!type) {
+      return items.map((item) => ({
+        type: item.name,
+        list: [],
+        page: pageNo,
+        totalPage: 1,
+        sourceId: '',
+      }));
+    }
+    const item = items.find((item) => item.name === type);
+    if (!item) return null;
+    pageNo = pageNo || 1;
+    const url = `${this.baseUrl}${item.tag.replace('{pageNo}', pageNo)}`;
+    const body = await this.fetchDom(url, {
+      verify: false,
+    });
+    const list = await this.queryComicElements(body, {
+      element: '.grid ul li',
+      cover: 'img',
+      title: '.title a',
+      url: '.title a',
+      intro: '.info_col',
+    });
+
+    const pageElements = body.querySelectorAll('.paginator a');
+    return {
+      list,
+      page: pageNo,
+      totalPage: this.maxPageNoFromElements(pageElements),
+    };
+  }
+
+  async search(keyword, pageNo) {
+    pageNo ||= 1;
+    const url = `${this.baseUrl}search/index.php?q=${keyword}&m=&syn=yes&f=_all&s=create_time_DESC&p=${pageNo}`;
+    const body = await this.fetchDom(url, {
+      verify: false,
+    });
+    const list = await this.queryComicElements(body, {
+      element: '.grid ul li',
+      cover: 'img',
+      title: '.title a',
+      url: '.title a',
+      intro: '.info_col',
+    });
+
+    const pageElements = body.querySelectorAll('.paginator a');
+    return {
+      list,
+      page: pageNo,
+      totalPage: this.maxPageNoFromElements(pageElements),
+    };
+  }
+
+  async getComicDetail(item, pageNo) {
+    pageNo ||= 1;
+    let body = await this.fetchDom(item.url);
+    // item.intro = body.querySelector('.uwconn p')?.textContent?.trim();
+    const pageElements = body.querySelectorAll('.paginator a');
+    const totalPage = this.maxPageNoFromElements(pageElements) || 1;
+    let currPage = pageNo || 1;
+    const chapters = [];
+    do {
+      const elements = body.querySelectorAll('.grid ul li');
+      elements.forEach((element) => {
+        const title = element.querySelector('.info .name')?.textContent?.trim();
+        const url = element.querySelector('a[href]')?.getAttribute('href');
+        if (title && url) {
+          chapters.push({
+            title,
+            url: this.urlJoin(this.baseUrl, url),
+          });
+        }
+      });
+      if (currPage >= totalPage) {
+        break;
+      }
+      currPage += 1;
+      body = await this.fetchDom(
+        item.url.replace('photos-index', `photos-index-page-${currPage}`)
+      );
+    } while (currPage <= totalPage);
+
+    item.chapters = chapters;
+    return item;
+  }
+
+  async getContent(item, chapter) {
+    const body = await this.fetchDom(chapter.url);
+    const images = body.querySelectorAll('.photo_body img');
+    const photos = [];
+    images.forEach((item) => {
+      console.log(item);
+
+      photos.push(`https:${item.getAttribute('src')}`);
+    });
+    console.log(photos);
+
+    return {
+      photos,
+      page: 1,
+      totalPage: 1,
+    };
+  }
+}
+
+return WN03;

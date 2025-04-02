@@ -55,10 +55,13 @@ def upload_project(config: BitifulConfig):
         aws_access_key_id=config.s3accessKeyId,
         aws_secret_access_key=config.s3SecretKeyId,
     )
-    main_file = CURR_PATH.joinpath("default_source.json")
-    _upload_file(client, main_file, config.bucketName, "default_source.json")
-    banned_file = CURR_PATH.joinpath("banned.json")
-    _upload_file(client, banned_file, config.bucketName, "banned.json")
+
+    for file in CURR_PATH.glob("*.json"):
+        _upload_file(client, file, config.bucketName, file.name)
+    # main_file = CURR_PATH.joinpath("default_source.json")
+    # _upload_file(client, main_file, config.bucketName, "default_source.json")
+    # banned_file = CURR_PATH.joinpath("banned.json")
+    # _upload_file(client, banned_file, config.bucketName, "banned.json")
 
     for file in CURR_PATH.joinpath("sources/photo").glob("*.js"):
         _upload_file(client, file, config.bucketName, "sources/photo/" + file.name)
@@ -71,6 +74,9 @@ def upload_project(config: BitifulConfig):
     
     for file in CURR_PATH.joinpath("sources/comic").glob("*.js"):
         _upload_file(client, file, config.bucketName, "sources/comic/" + file.name)
+
+    for file in CURR_PATH.joinpath("sources/video").glob("*.js"):
+        _upload_file(client, file, config.bucketName, "sources/video/" + file.name)
     
     for file in CURR_PATH.joinpath("sources/banned").glob("*.js"):
         _upload_file(client, file, config.bucketName, "sources/banned/" + file.name)

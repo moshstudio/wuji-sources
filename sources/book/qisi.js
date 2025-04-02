@@ -48,7 +48,7 @@ class QiSi extends BookExtension {
     if (!item) return null;
     pageNo = pageNo || 1;
     const url = this.urlJoin(this.baseUrl, item.id, `/${pageNo}.html`);
-    const body = await this.fetchDom(url);
+    const body = await this.fetchDom(url, {verify: false});
     const list = await this.queryBookElements(body, {
       element: '.hot_sale',
       cover: 'img',
@@ -75,7 +75,7 @@ class QiSi extends BookExtension {
 
   async search(keyword, pageNo) {
     const url = `${this.baseUrl}search.php?keyword=${keyword}`;
-    const body = await this.fetchDom(url);
+    const body = await this.fetchDom(url, {verify: false});
     const list = await this.queryBookElements(body, {
       element: '.hot_sale',
       title: 'a p',
@@ -90,7 +90,7 @@ class QiSi extends BookExtension {
   }
 
   async getBookDetail(item, pageNo) {
-    const body = await this.fetchDom(item.url);
+    const body = await this.fetchDom(item.url, {verify: false});
     item.cover ??= this.urlJoin(
       this.baseUrl,
       body.querySelector('#bookdetail img')?.getAttribute('src')
@@ -131,7 +131,7 @@ class QiSi extends BookExtension {
     let content = '';
     let nextPageUrl = chapter.url;
     while (nextPageUrl) {
-      const body = await this.fetchDom(nextPageUrl);
+      const body = await this.fetchDom(nextPageUrl, {verify: false});
       const chapterContent = body.querySelector('#chaptercontent');
 
       chapterContent?.childNodes.forEach((node) => {
