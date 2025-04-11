@@ -118,11 +118,8 @@ class WN03 extends ComicExtension {
     const images = body.querySelectorAll('.photo_body img');
     const photos = [];
     images.forEach((item) => {
-      console.log(item);
-
       photos.push(`https:${item.getAttribute('src')}`);
     });
-    console.log(photos);
 
     return {
       photos,

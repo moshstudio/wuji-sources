@@ -56,7 +56,6 @@ class AUETE extends VideoExtension {
       status: '.hdtag',
       latestUpdate: '.date .hidden-lg',
     });
-    console.log(list);
     const pageElements = document?.querySelectorAll('.pagination li a');
     return {
       list,
@@ -98,8 +97,6 @@ class AUETE extends VideoExtension {
           item.duration = text.replace('◎影片时长:', '');
           break;
         case text.startsWith('◎影片简介:'):
-          console.log('infos[index + 1]', infos[index + 1]);
-
           if (infos[index + 1]) {
             item.intro = infos[index + 1].textContent
               .replace('◎影片简介:', '')

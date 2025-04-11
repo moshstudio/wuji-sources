@@ -27,6 +27,11 @@
       "name": "开心漫画",
       "type": "comic",
       "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fbanned%2FkxManHua.js"
+    },
+    {
+      "name": "黄色仓库",
+      "type": "video",
+      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fbanned%2Fhscangku.js"
     }
   ]
 }

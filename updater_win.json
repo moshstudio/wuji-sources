@@ -1,10 +1,10 @@
 {
-  "version": "0.1.6",
-  "notes": "新增漫画、影视模块",
-  "pub_date":"2025-04-02T08:00:00+08:00",
+  "version": "0.1.7",
+  "notes": "设置-隐藏功能，安卓滑动音乐播放栏切换歌曲，优化视频全屏显示，手势控制等",
+  "pub_date":"2025-04-09T08:00:00+08:00",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVReGt3NC8xenVFQ3ZSYmpMU3JITjh5MU9TMnZNdEtKM01UZE11RlNUcll2WGk2cWp4M2I2WVpJOVZwTUpWMHVIdlM2SmtHZGRTOHN3bHhSeXlueEt0LzBDc2ZnWWpmUEFrPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzQzNTk1OTIwCWZpbGU65peg5p6BXzAuMS42X3g2NC1zZXR1cC5leGUKR1o1eWcycThianJYRVU4RFJMWnp3akRlNW5pMnJYWUtzRWlqOW1hM2xOM243dWFNRjNLcHI2bHpCNzNIN0pFUVd1K0EwYSt0OFh1ZzErSGtEclFIRFE9PQo=",
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVReGt3NC8xenVFQ204VU1yS1lNOXNsRmdvS2NVdEhZbThEN0R2VXNTbjA4YWZoZjFwanJ5T3lZbGd1QmdNNS9NeG45TTRUcWlSZjBHb0FtbHBlemIxN1kvdEE3Y3JrNkFJPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzQ0MTkwOTc5CWZpbGU65peg5p6BXzAuMS43X3g2NC1zZXR1cC5leGUKbFZpZkdmMG1xUWNlQkFQSVJWR212VXNXbGdTaTFqRkduRFJ4UEc5SFlsekZFcXhMNlFxN3pISDRKR2Z3dktKODVVRkRVTVh2MWNjd0RJaWQ0UnJTREE9PQo=",
       "url": "https://wuji.s3.bitiful.net/wuji_x64-setup.exe"
     }
   }

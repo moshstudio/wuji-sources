@@ -54,6 +54,11 @@
       "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fsong%2Fzz123.js"
     },
     {
+      "name": "爱听音乐",
+      "type": "song",
+      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fsong%2F2t68.js"
+    },
+    {
       "name": "哔哩",
       "type": "song",
       "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fsong%2Fbilibili.js"
@@ -104,6 +109,16 @@
       "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fbook%2F52dzxy.js"
     },
     {
+      "name": "2k小说",
+      "type": "book",
+      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fbook%2F2k.js"
+    },
+    {
+      "name": "好文书屋",
+      "type": "book",
+      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fbook%2Fhotxww.js"
+    },
+    {
       "name": "动漫之家",
       "type": "comic",
       "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fcomic%2Fdmzj.js"
@@ -142,6 +157,11 @@
       "name": "毒舌影视",
       "type": "video",
       "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fvideo%2Fduse.js"
+    },
+    {
+      "name": "直播(新版本支持)",
+      "type": "video",
+      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fvideo%2Fzhibo.js"
     }
   ]
 }

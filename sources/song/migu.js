@@ -85,7 +85,6 @@ class MiGuSongExtension extends SongExtension {
     const response = await this.getData(url);
 
     const list = [];
-    console.log(response);
 
     response.songLists.forEach((ele) => {
       list.push({
@@ -111,7 +110,6 @@ class MiGuSongExtension extends SongExtension {
       `https://m.music.migu.cn/migu/remoting/scr_search_tag` +
       `?keyword=${keyword}&pgc=${pageNo}&rows=10&type=2`;
     const response = await this.getData(url);
-    console.log(response);
 
     const songs = [];
     response.musics.forEach((ele) => {

@@ -14,19 +14,14 @@
       "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fbanned%2Fmeirentu.js"
     },
     {
-      "name": "全本小说",
-      "type": "book",
-      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fbanned%2Fquanbenxiaoshuo.js"
-    },
-    {
-      "name": "得奇小说",
-      "type": "book",
-      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fbanned%2Fdeqixs.js"
-    },
-    {
       "name": "网易云",
       "type": "song",
       "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fbanned%2Fnetease.js"
+    },
+    {
+      "name": "韩漫之家",
+      "type": "comic",
+      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fbanned%2Fhanman.js"
     },
     {
       "name": "开心漫画",
@@ -34,9 +29,9 @@
       "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fbanned%2FkxManHua.js"
     },
     {
-      "name": "绅士漫画",
-      "type": "comic",
-      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fbanned%2Fwn03.js"
+      "name": "黄色仓库",
+      "type": "video",
+      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fbanned%2Fhscangku.js"
     }
   ]
 }
