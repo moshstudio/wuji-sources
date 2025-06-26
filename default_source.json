@@ -59,6 +59,16 @@
       "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fsong%2F2t68.js"
     },
     {
+      "name": "云音乐",
+      "type": "song",
+      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fsong%2Fnetease.js"
+    },
+    {
+      "name": "酷我",
+      "type": "song",
+      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fsong%2Fkuwo.js"
+    },
+    {
       "name": "哔哩",
       "type": "song",
       "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fsong%2Fbilibili.js"
@@ -159,9 +169,14 @@
       "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fvideo%2Fduse.js"
     },
     {
-      "name": "直播(新版本支持)",
+      "name": "直播",
       "type": "video",
       "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fvideo%2Fzhibo.js"
+    },
+    {
+      "name": "趣看短剧",
+      "type": "video",
+      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fvideo%2Fqukan.js"
     }
   ]
 }

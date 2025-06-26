@@ -1,10 +1,10 @@
 {
-  "version": "0.1.7",
-  "notes": "设置-隐藏功能，安卓滑动音乐播放栏切换歌曲，优化视频全屏显示，手势控制等",
-  "pub_date":"2025-04-09T08:00:00+08:00",
+  "version": "0.1.10",
+  "notes": "修复bug；优化视频播放控制；优化界面",
+  "pub_date": "2025-05-13T08:00:00+08:00",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVReGt3NC8xenVFQ204VU1yS1lNOXNsRmdvS2NVdEhZbThEN0R2VXNTbjA4YWZoZjFwanJ5T3lZbGd1QmdNNS9NeG45TTRUcWlSZjBHb0FtbHBlemIxN1kvdEE3Y3JrNkFJPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzQ0MTkwOTc5CWZpbGU65peg5p6BXzAuMS43X3g2NC1zZXR1cC5leGUKbFZpZkdmMG1xUWNlQkFQSVJWR212VXNXbGdTaTFqRkduRFJ4UEc5SFlsekZFcXhMNlFxN3pISDRKR2Z3dktKODVVRkRVTVh2MWNjd0RJaWQ0UnJTREE9PQo=",
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVReGt3NC8xenVFQ3U4dEV0L09MUWlVZytVLzlXOHVRZVl0QjFyc015L2xGNEhtU1F0V0M1WG1EcUpwZVBtbzAwVjM4T3k1bGp3bHZLTnhObkVBbDhFZFZqZWtIY1J0VXdVPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzQ3MTEwODkwCWZpbGU65peg5p6BXzAuMS4xMF94NjQtc2V0dXAuZXhlCndhZHozNlphZUljU1ZZOWFUMmVwTUdHZlJBTGFENFM1allkb2JrSEhKVW01R0JqNnVKZEdNMXVSM0JBVDd2Viswa005aEdaMnI5NFduNGk5QWVBekJ3PT0K",
       "url": "https://wuji.s3.bitiful.net/wuji_x64-setup.exe"
     }
   }

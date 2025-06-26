@@ -18,17 +18,23 @@ class ZhiBo extends VideoExtension {
       url: "https://tv.iill.top/m3u/Live",
     },
     {
-      id: "https://github.moeyy.xyz/https://iptv-org.github.io/iptv/index.m3u",
-      title: "国外直播IPTV",
-      cover:
-        "https://q8.itc.cn/images01/20240220/9ca41439dde44af2b5ea707c15348d2b.png",
-      url: "https://github.moeyy.xyz/https://iptv-org.github.io/iptv/index.m3u",
-    },
-    {
       id: "https://github.moeyy.xyz/https://raw.githubusercontent.com/Guovin/iptv-api/gd/output/ipv4/result.m3u",
       title: "网络电视IPTV",
       cover: "https://image-bed.s3.bitiful.net/iptv.jpg?no-wait=on",
       url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/Guovin/iptv-api/gd/output/ipv4/result.m3u",
+    },
+    {
+      id: "https://github.moeyy.xyz/https://raw.githubusercontent.com/suxuang/myIPTV/refs/heads/main/ipv4.m3u",
+      title: "电视直播IPV4",
+      cover: "https://image-bed.s3.bitiful.net/iptv.jpg?no-wait=on",
+      url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/suxuang/myIPTV/refs/heads/main/ipv4.m3u",
+    },
+    {
+      id: "https://iptv-org.github.io/iptv/index.m3u",
+      title: "国外直播IPTV",
+      cover:
+        "https://q8.itc.cn/images01/20240220/9ca41439dde44af2b5ea707c15348d2b.png",
+      url: "https://iptv-org.github.io/iptv/index.m3u",
     },
   ];
   async getRecommendVideos(pageNo, type) {
@@ -112,10 +118,21 @@ class ZhiBo extends VideoExtension {
   }
 
   async getPlayUrl(item, resource, episode) {
-    return {
-      url: await this.getProxyServerUrl(episode.url, { "user-agent": this.ua }),
-      isLive: true,
-    };
+    if (this.getProxyServerUrl) {
+      return {
+        url: await this.getProxyServerUrl(episode.url, {
+          "user-agent": this.ua,
+        }),
+        isLive: true,
+      };
+    } else {
+      return {
+        url: await this.getM3u8ProxyUrl(episode.url, {
+          "user-agent": this.ua,
+        }),
+        isLive: true,
+      };
+    }
   }
 }
 

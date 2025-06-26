@@ -80,7 +80,7 @@ class MMZZTT extends PhotoExtension {
 
     const encryptData = (await response.json()).data;
     const iv = Array.from({ length: 16 }, (_, i) =>
-      ((parseInt(pid) % (i + 3)) % 9).toString()
+      ((parseInt(pid) % (i + 2)) % 10).toString()
     ).join('');
     const data = this.decryptPid(pid, encryptData, iv);
     return {
@@ -94,7 +94,7 @@ class MMZZTT extends PhotoExtension {
 
   decryptPid(pid, encryptData, iv) {
     // 常量
-    const sign = 'Bxk80i9Rt';
+    const sign = 'aeghiePh9ahx';
     // 生成签名 s
     const s = this.cryptoJs.MD5(pid + sign).toString();
     // 生成密钥 splitWord
