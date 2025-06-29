@@ -129,11 +129,6 @@
       "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fbook%2Fhotxww.js"
     },
     {
-      "name": "动漫之家",
-      "type": "comic",
-      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fcomic%2Fdmzj.js"
-    },
-    {
       "name": "包子漫画",
       "type": "comic",
       "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fcomic%2Fbaozi.js"
@@ -142,11 +137,6 @@
       "name": "漫画吧",
       "type": "comic",
       "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fcomic%2Fmanhuaba.js"
-    },
-    {
-      "name": "新新漫画",
-      "type": "comic",
-      "url": "https://wuji.s3.bitiful.net/wuji%2Fsources%2Fcomic%2Fxinxin.js"
     },
     {
       "name": "星光影视",
